@@ -1,21 +1,22 @@
+# Shuming.js
+
+The Shuming.js provides a solid foundation for creating feature-rich Discord bots using Discord.js. It includes various managers for handling message commands, buttons, select menus, slash commands, context menus, and modal forms. The template offers customization options, colorful logging, and a simple code structure.
+
+## [TEMPLATE OFFICIAL SOURCE](https://GitHub.com/RileCraft/DiscordBot-Template)
+
 <p align="center">
-  <img src="https://media.discordapp.net/attachments/774290264764055582/1093484780525469757/A_banner_for_a_discord_bots_template_made_using_discord.js.png" height="200" width="400"><br>
-  <img src="https://img.shields.io/badge/version-9.0.7-05122A?style=for-the-badge">
-  <a href="https://discord.gg/VStdRr8nP2"><img src="https://img.shields.io/badge/discord-invite-5865f2?style=for-the-badge&logo=discord&logoColor=white"></a>
-  <img src="https://img.shields.io/github/issues/RileCraft/DiscordBot-Template.svg?style=for-the-badge">
-  <img src="https://img.shields.io/github/forks/RileCraft/DiscordBot-Template.svg?style=for-the-badge">
-  <img src="https://img.shields.io/github/stars/RileCraft/DiscordBot-Template.svg?style=for-the-badge">
+  <img src="https://img.shields.io/badge/version-1.0.0-05122A?style=for-the-badge">
+  <a href="https://mxtiy.vercel.app/discord/shuming"><img src="https://img.shields.io/badge/discord-invite-5865f2?style=for-the-badge&logo=discord&logoColor=white"></a>
+  <img src="https://img.shields.io/github/issues/NoReplyUI5/Shuming.js.svg?style=for-the-badge">
+  <img src="https://img.shields.io/github/forks/NoReplyUI5/Shuming.js.svg?style=for-the-badge">
+  <img src="https://img.shields.io/github/stars/NoReplyUI5/Shuming.js.svg?style=for-the-badge">
 </p>
 
-# Discord Bot Template
-
-The Discord Bot Template provides a solid foundation for creating feature-rich Discord bots using Discord.js. It includes various managers for handling message commands, buttons, select menus, slash commands, context menus, and modal forms. The template offers customization options, colorful logging, and a simple code structure.
-
-## Changelog
-### 9.0.7
+## Changelog / RileCraft
+### 1.0.0
 - Fixed global cooldown triggering guild cooldown instead.
 
-### IMPORTANT UPDATE 9.0.6
+### IMPORTANT UPDATE / RileCraft
 
 - **Fixed Windows Support and SlashCommands & ContextMenus not Registering.**
 - Fixed subDirectories not working for commands.
@@ -37,11 +38,11 @@ The Discord Bot Template provides a solid foundation for creating feature-rich D
 - `SlashCommands` have been simplified as now instead of `Guilds/<GuildID>/<Files Here>`, you can use `guilds: ["GUILD ID"]`
 - In a slashCommand you do not need to assign the `type: ApplicationCommandType` property as the handler by default assumes it as `ChatInput`.
 
-## Documentation
+## Documentation / RileCraft
 
 For detailed documentation on command options and managers, please refer to the following links:
 
-### Command Options
+### Command Options / RileCraft
 
 - [ReturnErrors](/.github/DOCS/commandOptions/returnErrors.md)
 - [Ignore](/.github/DOCS/commandOptions/ignore.md)
@@ -60,7 +61,7 @@ For detailed documentation on command options and managers, please refer to the 
 - [OnlyUsers](/.github/DOCS/commandOptions/onlyUsers.md)
 - [OwnerOnly](/.github/DOCS/commandOptions/ownerOnly.md)
 
-### Managers
+### Managers / RileCraft
 
 - [MessageCommands](/.github/DOCS/managers/messageCommands.md)
 - [SelectMenus](/.github/DOCS/managers/selectMenus.md)
@@ -70,7 +71,7 @@ For detailed documentation on command options and managers, please refer to the 
 - [SlashCommands](/.github/DOCS/managers/slashCommands.md)
 - [ModalForms](/.github/DOCS/managers/modalForms.md)
 
-## Features
+## Features / RileCraft
 
 - Colorful and organized logging.
 - Customization options to suit your needs.
@@ -79,7 +80,7 @@ For detailed documentation on command options and managers, please refer to the 
 - Supports management of custom events.
 - Simple and understandable code structure.
 
-## Notes
+## Notes / RileCraft
 
 - Recommended Node.js version: 16 and above.
 - Global slash commands and context menus may take time to refresh as it is controlled by Discord.
@@ -94,20 +95,20 @@ For detailed documentation on command options and managers, please refer to the 
   - `<Client>.slashCommands`: Slash commands cache
   - `<Client>.contextMenus`: ContextMenus commands cache
 
-## Installation
+## Installation / RileCraft
 
-To get started with the Discord Bot Template, follow these steps:
+To get started with the Shuming.js, follow these steps:
 
-1. Clone the repository by downloading it as a ZIP file or running the command `git clone https://github.com/rilecraft/discordbot-template`.
+1. Clone the repository by downloading it as a ZIP file or running the command `git clone https://github.com/NoReplyUI5/Shuming.js`.
 2. Navigate to the template's directory and run the command `npm install` (make sure npm is installed).
 3. Once all the required modules are installed, open the `src/config.js` file and fill in the necessary information.
 4. Run the command `node .` to start the bot.
 
 ## Contribution
 
-Contributions to the Discord Bot Template are welcome. To contribute, please follow these guidelines:
+Contributions to the Shuming.js are welcome. To contribute, please follow these guidelines:
 
-1. Fork the `Unstable` branch. **Important: All changes must be made to the Unstable branch.**
+1. Fork the `Main` branch. **Important: All changes must be made to the Main branch.**
 2. Make your changes in your forked repository.
-3. Open a pull request to the `Unstable` branch, and it will be reviewed promptly.
+3. Open a pull request to the `Main` branch, and it will be reviewed promptly.
 4. If everything checks out, the pull request will be merged.# Shuming.js
