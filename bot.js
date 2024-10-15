@@ -1,5 +1,5 @@
 import { Client, GatewayIntentBits, Partials } from "discord.js";
-import { BOT_TOKEN } from "./src/config.js";
+import { BOT_TOKEN } from "./src/example.config.js";
 import { dirname } from "node:path";
 import { ButtonManager } from "./src/structures/managers/buttonCommands.js";
 import { EventManager } from "./src/structures/managers/events.js";
