@@ -14,6 +14,7 @@ The Shuming.js provides a solid foundation for creating feature-rich Discord bot
 
 ## Changelog / NoReplyUI5
 ### 1.0.0
+- **(+) Added Moderation Commands**
 - **(+) Added Extra Logging Feature With [Timezone](https://npmjs.org/package/moment-timezone)**
 - **(+) Added Dokdo Feature: [PAINFUEG0/PEARL]( https://github.com/painfuego/pearl/tree/main/dokdo)**
 
