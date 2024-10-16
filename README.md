@@ -12,13 +12,15 @@ The Shuming.js provides a solid foundation for creating feature-rich Discord bot
   <img src="https://img.shields.io/github/stars/NoReplyUI5/Shuming.js.svg?style=for-the-badge">
 </p>
 
-## Changelog / RileCraft
+## Changelog / NoReplyUI5
 ### 1.0.0
-- Fixed global cooldown triggering guild cooldown instead.
+- **(+) Added Logger With [Timezone](https://npmjs.org/package/moment-timezone)**
+- **(+) Added Dokdo Feature: [PAINFUEG0/PEARL]( https://github.com/painfuego/pearl/tree/main/dokdo)**
 
 ### IMPORTANT UPDATE / RileCraft
 
 - **Fixed Windows Support and SlashCommands & ContextMenus not Registering.**
+- Fixed global cooldown triggering guild cooldown instead.
 - Fixed subDirectories not working for commands.
 - Added dependency of `simple-json-db` for the cooldown system as i rage quit and can't do it with `fs` myself.
 - Latest Discord.js adaptation.
