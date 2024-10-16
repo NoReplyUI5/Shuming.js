@@ -14,7 +14,7 @@ The Shuming.js provides a solid foundation for creating feature-rich Discord bot
 
 ## Changelog / NoReplyUI5
 ### 1.0.0
-- **(+) Added Logger With [Timezone](https://npmjs.org/package/moment-timezone)**
+- **(+) Added Extra Logging Feature With [Timezone](https://npmjs.org/package/moment-timezone)**
 - **(+) Added Dokdo Feature: [PAINFUEG0/PEARL]( https://github.com/painfuego/pearl/tree/main/dokdo)**
 
 ### IMPORTANT UPDATE / RileCraft
@@ -97,13 +97,13 @@ For detailed documentation on command options and managers, please refer to the 
   - `<Client>.slashCommands`: Slash commands cache
   - `<Client>.contextMenus`: ContextMenus commands cache
 
-## Installation / RileCraft
+### Installation / RileCraft & NoReplyUI5
 
 To get started with the Shuming.js, follow these steps:
 
 1. Clone the repository by downloading it as a ZIP file or running the command `git clone https://github.com/NoReplyUI5/Shuming.js`.
 2. Navigate to the template's directory and run the command `npm install` (make sure npm is installed).
-3. Once all the required modules are installed, open the `src/config.js` file and fill in the necessary information.
+3. Once all the required modules are installed, open the `src` folder, rename `example.config.js` to `config.js`, after that open `src/config.js` file and fill in the necessary information.
 4. Run the command `node .` to start the bot.
 
 ## Contribution
