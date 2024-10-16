@@ -23,6 +23,7 @@
     "axios": "^1.7.7",
     "discord.js": "^14.16.2",
     "ms": "^2.1.3",
+    "node-fetch": "^3.3.2",
     "simple-json-db": "^2.0.0",
     "tasai": "^1.0.0",
     "undici-types": "^5.26.5"

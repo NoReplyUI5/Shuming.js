@@ -1,5 +1,5 @@
 import { Client, GatewayIntentBits, Partials } from "discord.js";
-import { BOT_TOKEN } from "./src/config.js";
+import { BOT_TOKEN, OWNER_IDS } from "./src/config.js";
 import { dirname } from "node:path";
 import { ButtonManager } from "./src/structures/managers/buttonCommands.js";
 import { EventManager } from "./src/structures/managers/events.js";
@@ -8,6 +8,7 @@ import { ModalManager } from "./src/structures/managers/modalForms.js";
 import { SelectMenuManager } from "./src/structures/managers/selectMenus.js";
 import { SlashManager } from "./src/structures/managers/slashCommands.js";
 import JSONdb from "simple-json-db";
+import { Client as dokdo } from './dokdo/index.js';
 
 const __dirname = dirname(import.meta.url);
 export const rootPath = __dirname;
@@ -28,6 +29,13 @@ export const rootPath = __dirname;
             GatewayIntentBits.GuildInvites,
         ],
         partials: [Partials.Channel]
+    });
+
+    // Dokdo
+    client.dok = new dokdo(client, {
+    prefix: "+",
+    owners: OWNER_IDS,
+    aliases: ["jsk", "dok", "dokdo"],
     });
 
     client.cooldownDB = new JSONdb("./cooldownDB.json");
