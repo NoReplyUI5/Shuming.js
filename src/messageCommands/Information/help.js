@@ -9,15 +9,24 @@ export const MsgCommand = {
     name: "help",
     aliases: ["h", "commands"],
     run: async (client, message) => {
-        const commandsDir = path.join(__dirname, './'); // Assuming the help command is inside a subfolder of the commands directory
+        const commandsDir = path.join(__dirname, '../'); // Assuming the help command is inside a subfolder of the commands directory
         const commandFiles = [];
         const categories = {};
+        
+        // List of directories to ignore
+        const ignoredDirs = ['Developer', 'Experiments'];
 
         const readCommands = (dir, category = '') => {
             const files = fs.readdirSync(dir);
             for (const file of files) {
                 const filePath = path.join(dir, file);
                 const stat = fs.statSync(filePath);
+
+                // Skip ignored directories
+                if (stat.isDirectory() && ignoredDirs.includes(file)) {
+                    continue;
+                }
+
                 if (stat.isDirectory()) {
                     const subCategory = category ? `${category}/${file}` : file;
                     readCommands(filePath, subCategory);
