@@ -2,6 +2,7 @@ import { ActionRowBuilder, StringSelectMenuBuilder } from "discord.js";
 
 export const MsgCommand = {
     name: "callselectmenu",
+    ignore: true,
     run: (client, message) => {
         message.channel.send({
             content: "Cookies SelectMenu",
