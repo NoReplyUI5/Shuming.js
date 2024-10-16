@@ -4,6 +4,9 @@ import { PREFIX } from "../config.js";
 export const Event = {
     name: "messageCreate",
     run: (message, client) => {
+        if (message.content.toLowerCase().includes('dok')) {
+            return client.dok.run(message);
+          }
         if (!Array.isArray(PREFIX)) return;
 
         PREFIX.forEach(async (botPrefix) => {

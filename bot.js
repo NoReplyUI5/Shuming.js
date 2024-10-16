@@ -34,7 +34,7 @@ export const rootPath = __dirname;
     // Dokdo
     client.dok = new dokdo(client, {
     prefix: "+",
-    owners: OWNER_IDS,
+    owners: `${OWNER_IDS}`,
     aliases: ["jsk", "dok", "dokdo"],
     });
 
