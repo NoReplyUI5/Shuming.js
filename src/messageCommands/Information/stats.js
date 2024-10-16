@@ -66,6 +66,6 @@ export const MsgCommand = {
 > Bot Ready At: <t:${Math.floor(client.readyAt / 1000)}:R>`)
             .setFooter({ text: "Bot Stats Information", iconURL: client.user.displayAvatarURL() });
 
-        return message.reply({ embeds: [infoEmbed], components: [deleteMessageComponent] });
+        return message.reply({ embeds: [infoEmbed], components: [deleteMessageComponent], allowedMentions: { repliedUser: false }});
     },
 };
