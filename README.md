@@ -5,7 +5,7 @@ The Shuming.js provides a solid foundation for creating feature-rich Discord bot
 ## [TEMPLATE OFFICIAL SOURCE](https://GitHub.com/RileCraft/DiscordBot-Template)
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.0.0-05122A?style=for-the-badge">
+  <a href="https://github.com/NoReplyUI5?tab=followers"><img src="https://img.shields.io/github/followers/NoReplyUI5?label=Followers&style=for-the-badge">
   <a href="https://mxtiy.vercel.app/discord/shuming"><img src="https://img.shields.io/badge/discord-invite-5865f2?style=for-the-badge&logo=discord&logoColor=white"></a>
   <img src="https://img.shields.io/github/issues/NoReplyUI5/Shuming.js.svg?style=for-the-badge">
   <img src="https://img.shields.io/github/forks/NoReplyUI5/Shuming.js.svg?style=for-the-badge">
@@ -13,8 +13,8 @@ The Shuming.js provides a solid foundation for creating feature-rich Discord bot
 </p>
 
 ## Changelog / NoReplyUI5
-### 1.0.0
-- **(+) Added Moderation Commands**
+- **(+) Added Moderation Commands ( Prefix )**
+- **(+) Added [MongoDB](https://www.mongodb.com) Database Support**
 - **(+) Added Extra Logging Feature With [Timezone](https://npmjs.org/package/moment-timezone)**
 - **(+) Added Dokdo Feature: [PAINFUEG0/PEARL]( https://github.com/painfuego/pearl/tree/main/dokdo)**
 

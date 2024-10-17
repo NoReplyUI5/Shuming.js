@@ -5,7 +5,7 @@ import { TIME_ZONE } from "../config.js";
 class Logger {
   constructor(options = {}) {
     // Default to Asia/Dhaka timezone if not specified
-    const { badges = {}, showTimestamp = true, timeZone = TIME_ZONE } = options;
+    const { showTimestamp = true, timeZone = TIME_ZONE } = options;
 
     this.colors = {
       info: '\x1b[34m',   // Blue
@@ -14,15 +14,6 @@ class Logger {
       success: '\x1b[32m', // Green
       log: '\x1b[37m',    // White
       reset: '\x1b[0m',   // Reset to default color
-    };
-
-    // Default badge icons with customization option
-    this.badges = {
-      info: badges.info || 'ℹ️',
-      warn: badges.warn || '⚠️',
-      error: badges.error || '❌',
-      success: badges.success || '✅',
-      log: badges.log || '➕',
     };
 
     this.showTimestamp = showTimestamp; // Option to show timestamps in logs
@@ -34,15 +25,14 @@ class Logger {
 
     // Use moment-timezone to format the current time based on the specified timezone
     const now = moment().tz(this.timeZone).format('YYYY-MM-DD HH:mm:ss');
-    return `[${now}] `;
+    return `[\x1b[32m${now}] `;
   }
 
   _printLog(type, message) {
-    const badge = this.badges[type] || ' ';
     const color = this.colors[type] || this.colors.log;
     const timestamp = this._getTimestamp();
 
-    console.log(`${color}${badge} ${timestamp}${message}${this.colors.reset}`);
+    console.log(`${timestamp}${color}${message}${this.colors.reset}`);
   }
 
   info(message) {
