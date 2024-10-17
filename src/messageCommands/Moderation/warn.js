@@ -35,7 +35,13 @@ export const MsgCommand = {
             });
         }
 
-        const reason = args.slice(1).join(" ") || "No reason given";
+        // Check if the first argument is a mention, user ID, or reply, then extract the reason from the remaining args
+        let reason;
+        if (message.mentions.members.first() || args[0]) {
+            reason = args.slice(1).join(" ") || "No reason given";
+        } else {
+            reason = args.join(" ") || "No reason given";
+        }
 
         try {
             // Save the warning to the database
