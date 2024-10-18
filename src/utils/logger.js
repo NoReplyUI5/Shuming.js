@@ -4,7 +4,6 @@ import { TIME_ZONE } from "../config.js";
 
 class Logger {
   constructor(options = {}) {
-    // Default to Asia/Dhaka timezone if not specified
     const { showTimestamp = true, timeZone = TIME_ZONE } = options;
 
     this.colors = {
@@ -17,7 +16,7 @@ class Logger {
     };
 
     this.showTimestamp = showTimestamp; // Option to show timestamps in logs
-    this.timeZone = timeZone;           // Timezone setting (default to Asia/Dhaka)
+    this.timeZone = timeZone;           // Timezone setting
   }
 
   _getTimestamp() {
