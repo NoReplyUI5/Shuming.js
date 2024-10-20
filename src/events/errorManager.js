@@ -3,10 +3,10 @@ export const Event = {
     customEvent: true,
     run: () => {
         process.on('unhandledRejection', (error) => {
-            client.logger.log(error);
+            console.log(error);
         });
         process.on('uncaughtException', (error) => {
-            client.logger.log(error);
+            console.log(error);
         });
     }
 }; // Error Handler to avoid the bot from crashing on error.

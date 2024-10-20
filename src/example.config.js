@@ -13,11 +13,11 @@ export const TIME_ZONE = "Your Timezone"; // Example: 'Asia/Kolkata'
 // RADIO SYSTEM CONFIGURATION
 export const RADIO_CHANNEL = "Channel ID"; // Voice Channel ID 
 export const RADIO_URL = "Radio URL"; // both HTTPS/HTTP Supported 
-// Example Radio Source 'https://boxradio-edge-02.streamafrica.net/lofi'
+// Example Radio Source 'https://boxradio-edge-02.streamafrica.net/lofi' Recommended
 
 // ANTI MESSAGE CONFIGURATION
 export const ANTI_BOT_MSG = ["Channel ID"]; // Text Channel IDs 
-export const MSG_DEL_TIME = "Seconds"; // Example: '5' in seconds 
+export const MSG_DEL_TIME = "Seconds"; // Example: '10' in seconds 
 // Anti bot message system will delete all messages sent by bots on that particular channels
 
 // AUTO ROLE CONFIGURATION

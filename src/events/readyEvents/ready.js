@@ -1,6 +1,6 @@
 import { ActivityType } from "discord.js";
-import { rootPath } from "../../bot.js";
-import { fileReader } from "../utils/fileReader.js";
+import { rootPath } from "../../../bot.js";
+import { fileReader } from "../../utils/fileReader.js";
 import { t } from "tasai";
 
 export const Event = {

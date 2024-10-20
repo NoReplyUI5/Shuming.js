@@ -1,4 +1,3 @@
-import { Client } from 'undici-types';
 import { BOT_GUILD_ID, USER_ROLE_ID } from '../../../../config.js';
 
 export const Event = {
