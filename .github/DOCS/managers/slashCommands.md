@@ -51,8 +51,8 @@ export const Slash = {
 		);
     },
     run: (interaction, client) => {
-        console.log(`${interaction.user.username} chose ${interaction.options.getString("type")}`)
-        console.log(`${interaction.user.username} chose ${interaction.options.getString("autocomplete") ?? "None"}`)
+        client.logger.log(`${interaction.user.username} chose ${interaction.options.getString("type")}`)
+        client.logger.log(`${interaction.user.username} chose ${interaction.options.getString("autocomplete") ?? "None"}`)
     }
 };
 ```

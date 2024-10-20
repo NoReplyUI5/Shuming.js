@@ -14,7 +14,7 @@ export const Event = {
 export const Event = {
     name: "channelCreate", // Omitted whenever a channel is created in a guild.
     run: (channel) => {
-        console.log(`A new channel was created in the ${channel.guild.name} of the name ${channel.name}.`);
+        client.logger.log(`A new channel was created in the ${channel.guild.name} of the name ${channel.name}.`);
     }
 };
 ```

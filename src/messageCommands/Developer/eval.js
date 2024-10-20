@@ -42,7 +42,7 @@ export const MsgCommand = {
             });
         }
         catch (error) {
-            console.log(error);
+            client.logger.log(error);
             message.channel.send({
                 content: `\`\`\`js\n${error}\n\`\`\``,
                 components: [deleteMessageComponent]

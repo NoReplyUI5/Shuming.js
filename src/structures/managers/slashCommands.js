@@ -76,6 +76,6 @@ export const SlashManager = async(client, rootPath) => {
             });
         };
     } catch (error) {
-        console.log(error);
+        client.logger.log(error);
     };
 };

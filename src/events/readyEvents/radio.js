@@ -62,7 +62,7 @@ export const Event = {
                     player.play(resource);
 
                     await entersState(player, AudioPlayerStatus.Playing, 5000);
-                    console.log(t.bold.green.toFunction()("[Player] ") + t.bold.cyan.toFunction()("Streaming..."));
+                    client.logger.log(t.bold.green.toFunction()("[Player] ") + t.bold.cyan.toFunction()("Streaming..."));
 
                 } catch {
                     await handlePlaybackError();
@@ -70,7 +70,7 @@ export const Event = {
             };
 
             const handlePlaybackError = async () => {
-                console.log(t.bold.yellow.toFunction()("[Player] ") + "Attempting to restart stream...");
+                client.logger.log(t.bold.yellow.toFunction()("[Player] ") + "Attempting to restart stream...");
                 cacheStream = new PassThrough();
                 await setTimeout(1000);  // Shorter delay for quicker recovery
                 await fetchStream();
@@ -104,12 +104,12 @@ export const Event = {
             }
 
             connection.on(VoiceConnectionStatus.Ready, () => {
-                console.log(t.bold.green.toFunction()("[Connection] ") + t.bold.blue.toFunction()("Connected, starting radio..."));
+                client.logger.log(t.bold.green.toFunction()("[Connection] ") + t.bold.blue.toFunction()("Connected, starting radio..."));
                 playRadio(connection);
             });
 
             connection.on(VoiceConnectionStatus.Disconnected, async () => {
-                console.log(t.bold.red.toFunction()("[Connection] ") + "Disconnected, attempting to reconnect...");
+                client.logger.log(t.bold.red.toFunction()("[Connection] ") + "Disconnected, attempting to reconnect...");
                 try {
                     await entersState(connection, VoiceConnectionStatus.Connecting, 5000);
                 } catch {
@@ -130,7 +130,7 @@ export const Event = {
             client.on(Events.VoiceStateUpdate, async (oldState, newState) => {
                 const channel = newState.channel;
                 if (channel && channel.id === voiceChannelId && newState.member.user.bot && newState.member.id !== client.user.id) {
-                    console.log(t.bold.yellow.toFunction()("[Safety] ") + `Bot ${newState.member.user.tag} joined. Disconnecting in 5 seconds...`);
+                    client.logger.log(t.bold.yellow.toFunction()("[Safety] ") + `Bot ${newState.member.user.tag} joined. Disconnecting in 5 seconds...`);
                     await setTimeout(5000); // Wait 5 seconds before disconnecting the bot
                     try {
                         await newState.disconnect();
