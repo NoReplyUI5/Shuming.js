@@ -13,6 +13,10 @@ The Shuming.js provides a solid foundation for creating feature-rich Discord bot
 </p>
 
 ## Changelog / NoReplyUI5
+- **(+) Added Delete Bot Message System**
+- **(+) Added Autorole Bots System**
+- **(+) Added Voice Radio System**
+- **(-) Moved ( Global Server to Single Server)**
 - **(+) Added Moderation Commands ( Prefix )**
 - **(+) Added [MongoDB](https://www.mongodb.com) Database Support**
 - **(+) Added Extra Logging Feature With [Timezone](https://npmjs.org/package/moment-timezone)**
