@@ -20,5 +20,6 @@ export const ANTI_BOT_MSG = ["Channel ID"]; // Text Channel IDs
 export const MSG_DEL_TIME = "Seconds"; // Example: '5' in seconds 
 // Anti bot message system will delete all messages sent by bots on that particular channels
 
-// AUTO ROLE BOTS CONFIGURATION
-export const BOT_ROLE_ID = "Role ID"; // Auto Role IDs for bot 
+// AUTO ROLE CONFIGURATION
+export const BOT_ROLE_ID = ["Role ID"]; // Auto Role IDs for bot ( Sticky Role )
+export const USER_ROLE_ID = ["Role ID"]; // Auto Role IDs for user ( Sticky Role )

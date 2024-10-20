@@ -135,7 +135,7 @@ export const Event = {
                     try {
                         await newState.disconnect();
                     } catch (error) {
-                        console.error(t.bold.red.toFunction()("[Error] ") + `Failed to disconnect bot ${newState.member.user.tag}: ${error.message}`);
+                        client.logger.error(t.bold.red.toFunction()("[Error] ") + `Failed to disconnect bot ${newState.member.user.tag}: ${error.message}`);
                     }
                 }
             });

@@ -12,7 +12,7 @@ const checkRolesForBots = async (guild) => {
             }
         }
     } catch (error) {
-        console.error(`Failed during bot role check: ${error.message}`);
+        client.logger.error(`Failed during bot role check: ${error.message}`);
     }
 };
 
@@ -22,7 +22,7 @@ export const Event = {
     run: async (client) => {
         const guild = client.guilds.cache.get(BOT_GUILD_ID);
         if (!guild) {
-            console.error('Guild not found!');
+            client.logger.error('Guild not found!');
             return;
         }
 

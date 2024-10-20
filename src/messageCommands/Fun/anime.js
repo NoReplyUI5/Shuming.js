@@ -71,7 +71,7 @@ export const MsgCommand = {
             message.channel.send({ embeds: [embed] });
 
         } catch (error) {
-            console.error(error);
+            client.logger.error(error);
             message.channel.send({
                 content: "Couldn't retrieve the anime details at this time. Please try again later."
             });

@@ -48,7 +48,7 @@ export const MsgCommand = {
                             });
                         })
                         .catch(err => {
-                            console.error(err);
+                            client.logger.error(err);
                             message.channel.send({
                                 content: "I was unable to ban this user. Please check my permissions and try again.",
                                 allowedMentions: { repliedUser: false }
@@ -61,7 +61,7 @@ export const MsgCommand = {
                     });
                 }
             } catch (err) {
-                console.error(err);
+                client.logger.error(err);
                 return message.channel.send({
                     content: "An error occurred while fetching the user globally.",
                     allowedMentions: { repliedUser: false }
@@ -81,7 +81,7 @@ export const MsgCommand = {
                 });
             }
         } catch (error) {
-            console.error(error);
+            client.logger.error(error);
             return message.channel.send({
                 content: "There was an error fetching the ban list. Please try again.",
                 allowedMentions: { repliedUser: false }
