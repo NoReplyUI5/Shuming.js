@@ -62,7 +62,6 @@ export const Event = {
                     player.play(resource);
 
                     await entersState(player, AudioPlayerStatus.Playing, 5000);
-                    client.logger.log(t.bold.green.toFunction()("[Player] ") + t.bold.cyan.toFunction()("Streaming..."));
 
                 } catch {
                     await handlePlaybackError();
@@ -70,7 +69,6 @@ export const Event = {
             };
 
             const handlePlaybackError = async () => {
-                client.logger.log(t.bold.yellow.toFunction()("[Player] ") + "Attempting to restart stream...");
                 cacheStream = new PassThrough();
                 await setTimeout(1000);  // Shorter delay for quicker recovery
                 await fetchStream();
@@ -104,12 +102,12 @@ export const Event = {
             }
 
             connection.on(VoiceConnectionStatus.Ready, () => {
-                client.logger.log(t.bold.green.toFunction()("[Connection] ") + t.bold.blue.toFunction()("Connected, starting radio..."));
+                client.logger.log(t.bold.green.toFunction()("[Connection] ") + t.bold.blue.toFunction()("Radio Connected"));
                 playRadio(connection);
             });
 
             connection.on(VoiceConnectionStatus.Disconnected, async () => {
-                client.logger.log(t.bold.red.toFunction()("[Connection] ") + "Disconnected, attempting to reconnect...");
+                client.logger.log(t.bold.red.toFunction()("[Connection] ") + "Radio Disconnected");
                 try {
                     await entersState(connection, VoiceConnectionStatus.Connecting, 5000);
                 } catch {
