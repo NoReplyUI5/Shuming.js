@@ -13,11 +13,12 @@ The Shuming.js provides a solid foundation for creating feature-rich Discord bot
 </p>
 
 ## Changelog / NoReplyUI5
-- **(+) Added Delete Bot Message System**
-- **(+) Added Autorole Users & Bots System**
-- **(+) Added Voice Radio System**
+- **(+) Added Minecraft Status Checker (Events)**
+- **(+) Added Delete Bot Message System (Events)**
+- **(+) Added Autorole Users & Bots System (Events)**
+- **(+) Added Voice Radio System (Error/Removed) (Will be fixed)**
 - **(-) Moved ( Global Server to Single Server)**
-- **(+) Added Moderation Commands ( Prefix )**
+- **(+) Added Moderation Commands (MessageCmds)**
 - **(+) Added [MongoDB](https://www.mongodb.com) Database Support**
 - **(+) Added Extra Logging Feature With [Timezone](https://npmjs.org/package/moment-timezone)**
 - **(+) Added Dokdo Feature: [PAINFUEG0/PEARL]( https://github.com/painfuego/pearl/tree/main/dokdo)**
@@ -29,7 +30,7 @@ To get started with the Shuming.js, follow these steps:
 1. Clone the repository by downloading it as a ZIP file or running the command `git clone https://github.com/NoReplyUI5/Shuming.js`.
 2. Navigate to the template's directory and run the command `npm install` (make sure npm is installed).
 3. Once all the required modules are installed, open the `src` folder, rename `example.config.js` to `config.js`, after that open `src/config.js` file and fill in the necessary information.
-4. Run the command `node .` to start the bot.
+4. Run the command `node .` or `npm start` to start the bot.
 
 ## Contribution
 

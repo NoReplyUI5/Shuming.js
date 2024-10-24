@@ -1,12 +1,14 @@
-import { ANTI_BOT_MSG, MSG_DEL_TIME } from '../../../../config.js';
+import { ANTI_BOT_MSG, BOT_BYPASS, MSG_DEL_TIME } from '../../../../config.js';
 
 export const Event = {
     name: 'messageCreate',
     runOnce: false,
     run: async (message) => {
         const channelIds = ANTI_BOT_MSG;
+        const whitelistedBotIds = BOT_BYPASS;
 
-        if (!channelIds.includes(message.channel.id) || !message.author.bot) return; // Ignore messages not in the specified channels or not from bots
+        if (!channelIds.includes(message.channel.id) || !message.author.bot) return;
+        if (whitelistedBotIds.includes(message.author.id)) return;
 
         try {
             setTimeout(async () => {

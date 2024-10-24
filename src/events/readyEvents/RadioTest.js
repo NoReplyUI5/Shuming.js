@@ -12,12 +12,11 @@ import { t } from "tasai";
 import { setTimeout } from 'node:timers/promises';
 import axios from 'axios';
 import { PassThrough } from 'stream';
-import { RADIO_CHANNEL, RADIO_URL } from '../../config.js';
 
-const voiceChannelId = RADIO_CHANNEL;
-const radioUrl = RADIO_URL;
+const voiceChannelId = '1297483247478902834';
+const radioUrl = 'https://boxradio-edge-02.streamafrica.net/lofi';
 
-export const Event1 = {
+export const Event = {
     name: 'ready',
     runOnce: false,
     run: async (client) => {
@@ -62,6 +61,7 @@ export const Event1 = {
                     player.play(resource);
 
                     await entersState(player, AudioPlayerStatus.Playing, 5000);
+                    console.log(t.bold.green.toFunction()("[Player] ") + t.bold.cyan.toFunction()("Streaming..."));
 
                 } catch {
                     await handlePlaybackError();
@@ -69,6 +69,7 @@ export const Event1 = {
             };
 
             const handlePlaybackError = async () => {
+                console.log(t.bold.yellow.toFunction()("[Player] ") + "Attempting to restart stream...");
                 cacheStream = new PassThrough();
                 await setTimeout(1000);  // Shorter delay for quicker recovery
                 await fetchStream();
@@ -102,12 +103,12 @@ export const Event1 = {
             }
 
             connection.on(VoiceConnectionStatus.Ready, () => {
-                client.logger.log(t.bold.green.toFunction()("[Connection] ") + t.bold.blue.toFunction()("Radio Connected"));
+                console.log(t.bold.green.toFunction()("[Connection] ") + t.bold.blue.toFunction()("Connected, starting radio..."));
                 playRadio(connection);
             });
 
             connection.on(VoiceConnectionStatus.Disconnected, async () => {
-                client.logger.log(t.bold.red.toFunction()("[Connection] ") + "Radio Disconnected");
+                console.log(t.bold.red.toFunction()("[Connection] ") + "Disconnected, attempting to reconnect...");
                 try {
                     await entersState(connection, VoiceConnectionStatus.Connecting, 5000);
                 } catch {
@@ -128,12 +129,12 @@ export const Event1 = {
             client.on(Events.VoiceStateUpdate, async (oldState, newState) => {
                 const channel = newState.channel;
                 if (channel && channel.id === voiceChannelId && newState.member.user.bot && newState.member.id !== client.user.id) {
-                    client.logger.log(t.bold.yellow.toFunction()("[Safety] ") + `Bot ${newState.member.user.tag} joined. Disconnecting in 5 seconds...`);
+                    console.log(t.bold.yellow.toFunction()("[Safety] ") + `Bot ${newState.member.user.tag} joined. Disconnecting in 5 seconds...`);
                     await setTimeout(5000); // Wait 5 seconds before disconnecting the bot
                     try {
                         await newState.disconnect();
                     } catch (error) {
-                        client.logger.error(t.bold.red.toFunction()("[Error] ") + `Failed to disconnect bot ${newState.member.user.tag}: ${error.message}`);
+                        console.error(t.bold.red.toFunction()("[Error] ") + `Failed to disconnect bot ${newState.member.user.tag}: ${error.message}`);
                     }
                 }
             });

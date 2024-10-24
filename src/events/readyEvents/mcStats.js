@@ -1,86 +1,69 @@
+import { MC_STATS_CHANNEL_ID, MC_STATS_IP, MC_STATS_PORT, MC_STATS_ICON, MC_STATS_ENABLED, MC_STATS_REFRESH } from '../../config.js';
 import { EmbedBuilder } from 'discord.js';
-import request from 'request';
+import axios from 'axios';
 
 const config = {
-  host: 'play.biltusmp.xyz',
-  port: 25565,
-  version: '1.20.1',
-  motd: '',
-  motd2: '',
-  icon: 'https://cdn.discordapp.com/attachments/1073089280672542720/1101682698059260004/GrassBlock_HighRes.png',
-  footerr: 'Monitoring BiltuSmp',
+  host: MC_STATS_IP,
+  port: MC_STATS_PORT || "25565",
+  icon: MC_STATS_ICON || "https://cdn.discordapp.com/attachments/1073089280672542720/1101682698059260004/GrassBlock_HighRes.png",
 };
 
-const channelId = '1152913478521208833';
+const channelId = MC_STATS_CHANNEL_ID;
 const thumbnail = config.icon;
 
-// Function to get server status
+// Function to get server status using axios
 async function getServerStatus() {
-  return new Promise((resolve, reject) => {
-    const url = `https://api.mcsrvstat.us/2/${config.host}:${config.port}`;
-    request(url, (error, response, body) => {
-      if (error) {
-        reject(error);
-      } else if (response.statusCode !== 200) {
-        reject(new Error(`Status code: ${response.statusCode}`));
-      } else {
-        const data = JSON.parse(body);
-        resolve(data);
-      }
-    });
-  });
+  try {
+    const url = `https://api.mcsrvstat.us/3/${config.host}:${config.port}`;
+    const response = await axios.get(url);
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response ? `Status code: ${error.response.status}` : error.message);
+  }
 }
 
 // Function to format the embed
 function formatEmbed(data) {
   const online = data.online ? 'Online' : 'Offline';
-  const playerCount = data.players ? `${data.players.online} / ${data.players.max}` : 'N/A';
-  const version = data.version || config.version;
-  const description = data.motd ? data.motd.clean[0] : config.motd;
-  const footer = config.footerr;
+  const playerCount = data.online ? `${data.players.online} / ${data.players.max}` : 'N/A';
+  const version = data.protocol ? `${data.protocol.name} (${data.protocol.version})` : "N/A";
+  const description = data.motd ? `${data.motd.clean[0]}\n${data.motd.clean[1]}` : "N/A";
 
-  return new EmbedBuilder()
-    .setTitle(`<a:status:1152902432695779368> Server Status: ${online}`)
-    .setDescription(description)
+  const embed = new EmbedBuilder()
+    .setTitle(`**Server Status:** ${online}`)
+    .setDescription(online === 'Online' ? description : 'The server is currently offline.')
     .setFooter({ text: `Last updated: ${new Date(Date.now())}` })
+    .setThumbnail(thumbnail)
     .addFields(
       {
-        name: "**<:World:1152899511195271238>** Ip Address",
+        name: "**Ip Address**",
         value: `**\`\`\`${config.host}\`\`\`**`,
         inline: true,
       },
       {
-        name: "**<a:Portal:1152894434564907018>** Bedrock Port",
-        value: `**\`\`\`25582\`\`\`**`,
-        inline: true,
-      },
-      {
-        name: "**<:version:1152893564431388772>** Version",
-        value: `\`\`\`Minecraft 1.7.x-1.20.x | Bedrock 1.20.x\`\`\``,
-        inline: true,
-      },
-      {
-        name: "**<:user:1152893268967829544>** Online",
-        value: `\`\`\`${playerCount} Player's\`\`\``,
-        inline: true,
-      },
-      {
-        name: "**<:server:1152906265383673936>** Game Mode",
-        value: `\`\`\`Survival, Lifesteal, PvP Arena\`\`\``,
-        inline: true,
-      },
-      {
-        name: "**<:warning:1152892754045714432>** Warning",
-        value: `\`\`\`Xray, Hack, PvP Mods, Abusing, Advertising, Spamming NOT ALLOWED\`\`\``,
-        inline: true,
-      },
-      {
-        name: "**Live Stats:**",
-        value: "[Click Here](https://aboutyash.vercel.app/biltusmp)",
+        name: "**Version**",
+        value: `\`\`\`Minecraft ${version}\`\`\``,
         inline: true,
       }
-    )
-    .setThumbnail(thumbnail);
+    );
+
+  if (online === 'Online') {
+    embed.addFields(
+      {
+        name: "**Online**",
+        value: `\`\`\`${playerCount} Player(s)\`\`\``,
+        inline: true,
+      }
+    );
+  } else {
+    embed.addFields({
+      name: "**Status**",
+      value: `\`\`\`The server is offline\`\`\``,
+      inline: true,
+    });
+  }
+
+  return embed;
 }
 
 // Function to send the embed
@@ -97,7 +80,7 @@ async function sendEmbed(channel, lastMessageId) {
       return message.id; // Return the message ID for tracking
     }
   } catch (error) {
-    console.error(error);
+    client.logger.error(error);
   }
 }
 
@@ -106,9 +89,15 @@ export const Event = {
   name: 'ready',
   runOnce: false,
   run: async (client) => {
+    // Check if the event is enabled
+    if (!MC_STATS_ENABLED) {
+      client.logger.log('MC Stats event is disabled from config.');
+      return;
+    }
+
     const channel = client.channels.cache.get(channelId);
     if (!channel) {
-      console.error(`Channel with ID ${channelId} not found`);
+      client.logger.error(`Channel with ID ${channelId} not found`);
       return;
     }
     
@@ -122,6 +111,6 @@ export const Event = {
     // Update the embed message every 2 minutes
     setInterval(() => {
       sendEmbed(channel, lastMessageId);
-    }, 120000); // Update every 2 minutes
+    }, MC_STATS_REFRESH * 1000); // Update every 2 minutes
   }
 };
