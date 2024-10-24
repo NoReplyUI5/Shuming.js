@@ -15,7 +15,7 @@ The Shuming.js provides a solid foundation for creating feature-rich Discord bot
 
 ## Information Category
 
-- **[Change Logs - Readme](https://github.com/NoReplyUI5/Shuming.js/blob/Main/DOCS/CHANGELOG.md)**
+- **[Change Logs - Readme](https://github.com/NoReplyUI5/Shuming.js/blob/main/DOCS/CHANGELOG.md)**
 
 ## Code Installation
 
