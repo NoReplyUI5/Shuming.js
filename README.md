@@ -6,7 +6,7 @@ The Shuming.js provides a solid foundation for creating feature-rich Discord bot
 **NOTE:** This code is intended for managing a single guild. If you wish to make it multi-guilded, you can create `pull request` after updating the code. Be sure to create an issue if you encounter any problem/issues
 
 <p align="center">
-  <a href="https://github.com/NoReplyUI5?tab=followers"><img src="https://img.shields.io/github/followers/NoReplyUI5?label=Followers&style=for-the-badge">
+  <a href="https://github.com/NoReplyUI5?tab=followers"><img src="https://img.shields.io/github/followers/NoReplyUI5?label=Followers&style=for-the-badge"></a>
   <a href="https://mxtiy.vercel.app/discord/shuming"><img src="https://img.shields.io/badge/discord-invite-5865f2?style=for-the-badge&logo=discord&logoColor=white"></a>
   <img src="https://img.shields.io/github/issues/NoReplyUI5/Shuming.js.svg?style=for-the-badge">
   <img src="https://img.shields.io/github/forks/NoReplyUI5/Shuming.js.svg?style=for-the-badge">
