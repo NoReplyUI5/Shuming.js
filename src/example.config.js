@@ -17,9 +17,18 @@ export const RADIO_URL = "Radio URL"; // both HTTPS/HTTP Supported
 
 // ANTI MESSAGE CONFIGURATION
 export const ANTI_BOT_MSG = ["Channel ID"]; // Text Channel IDs 
-export const MSG_DEL_TIME = "Seconds"; // Example: '10' in seconds 
+export const MSG_DEL_TIME = 10; // Message delete interval in seconds (default: 10 seconds)
 // Anti bot message system will delete all messages sent by bots on that particular channels
 
 // AUTO ROLE CONFIGURATION
 export const BOT_ROLE_ID = ["Role ID"]; // Auto Role IDs for bot ( Sticky Role )
 export const USER_ROLE_ID = ["Role ID"]; // Auto Role IDs for user ( Sticky Role )
+
+
+// MC STATS CONFIGURATION
+export const MC_STATS_ENABLED = false; // Enable: (true) or disable: (false) MC Stats feature (default: false)
+export const MC_STATS_CHANNEL_ID = "Channel ID"; // Channel ID where the stats will be posted
+export const MC_STATS_IP = "Minecraft Server IP"; // Your Minecraft Server IP
+export const MC_STATS_PORT = "Minecraft Server Port"; // Your Minecraft Server Port (usually 25565)
+export const MC_STATS_REFRESH = 60; // Refresh interval in seconds (default: 60 seconds)
+// The MC_STATS_REFRESH value controls how often the server stats will be updated
