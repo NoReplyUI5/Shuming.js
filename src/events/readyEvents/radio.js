@@ -62,7 +62,7 @@ export const Event = {
                 try {
                     const resource = createAudioResource(cacheRadio, { inlineVolume: true });
                     player.play(resource);
-                    await entersState(player, AudioPlayerStatus.Playing, 2000);
+                    await entersState(player, AudioPlayerStatus.Playing, 5000);
                 } catch (error) {
                     client.logger.error('[Radio] Error playing stream:', error);
                     await handlePlaybackError();
@@ -71,7 +71,7 @@ export const Event = {
 
             const handlePlaybackError = async () => {
                 cacheRadio = new PassThrough();
-                await setTimeout(1000);
+                await setTimeout(5000);
                 await fetchStream();
                 await playStream();
             };
@@ -113,7 +113,7 @@ export const Event = {
             connection.on(VoiceConnectionStatus.Disconnected, async () => {
                 client.logger.warn('[Radio] Disconnected');
                 try {
-                    await entersState(connection, VoiceConnectionStatus.Connecting, 2000);
+                    await entersState(connection, VoiceConnectionStatus.Connecting, 5000);
                     client.logger.success('[Radio] Reconnected');
                 } catch {
                     client.logger.error('[Radio] Failed to reconnect');
