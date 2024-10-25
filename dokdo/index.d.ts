@@ -11,8 +11,8 @@ import {
   Snowflake,
   ChatInputCommandInteraction,
   Client,
-} from 'discord.js';
-import util from 'util';
+} from "discord.js";
+import util from "util";
 
 interface ProcessOptions {
   /**
@@ -110,7 +110,7 @@ declare function inspect(value: unknown, options: util.InspectOptions): string;
 
 declare function table(obj: Record<string, any>): string;
 
-declare function typeFind(argument: any): 'NaN' | 'Class' | 'Function' | string;
+declare function typeFind(argument: any): "NaN" | "Class" | "Function" | string;
 
 declare function isInstance(target: unknown, theClass: any): boolean;
 
@@ -211,7 +211,7 @@ interface MessageData {
   type: string;
   args?: string;
 }
-declare module 'discord.js' {
+declare module "discord.js" {
   interface Message {
     data: MessageData;
   }
