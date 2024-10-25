@@ -27,4 +27,4 @@
 ## Step 6: Use the Connection URI
 1. Setup the MongoDB URI in the config file
    ```javascript
-export const MONGO_URI = "mongodb+srv://myUser:myPassword@cluster0.mongodb.net/myDatabase?retryWrites=true&w=majority";
+   export const MONGO_URI = "mongodb+srv://myUser:myPassword@cluster0.mongodb.net/myDatabase?retryWrites=true&w=majority";
