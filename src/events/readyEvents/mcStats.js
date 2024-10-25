@@ -1,6 +1,7 @@
-import { MC_STATS_CHANNEL_ID, MC_STATS_IP, MC_STATS_PORT, MC_STATS_ICON, MC_STATS_ENABLED, MC_STATS_REFRESH } from '../../config.js';
+import { MC_TIME_ZONE, MC_STATS_CHANNEL_ID, MC_STATS_IP, MC_STATS_PORT, MC_STATS_ICON, MC_STATS_ENABLED, MC_STATS_REFRESH } from '../../config.js';
 import { EmbedBuilder } from 'discord.js';
 import axios from 'axios';
+import moment from 'moment-timezone'; // Import moment-timezone
 
 const config = {
   host: MC_STATS_IP,
@@ -32,7 +33,7 @@ function formatEmbed(data) {
   const embed = new EmbedBuilder()
     .setTitle(`**Server Status:** ${online}`)
     .setDescription(online === 'Online' ? description : 'The server is currently offline.')
-    .setFooter({ text: `Last updated: ${new Date(Date.now())}` })
+    .setFooter({ text: `Last updated: ${moment().tz(MC_TIME_ZONE).format('ddd MMM DD YYYY HH:mm:ss')} (${MC_TIME_ZONE})` }) // Updated footer with timezone
     .setThumbnail(thumbnail)
     .addFields(
       {
@@ -108,9 +109,9 @@ export const Event = {
     // Send the initial embed message and save the last message ID
     lastMessageId = await sendEmbed(channel, lastMessageId);
     
-    // Update the embed message every 2 minutes
+    // Update the embed message every # seconds
     setInterval(() => {
       sendEmbed(channel, lastMessageId);
-    }, MC_STATS_REFRESH * 1000); // Update every 2 minutes
+    }, MC_STATS_REFRESH*1000); // Update based on MC_STATS_REFRESH
   }
 };

@@ -24,7 +24,7 @@ class Logger {
 
     // Use moment-timezone to format the current time based on the specified timezone
     const now = moment().tz(this.timeZone).format('YYYY-MM-DD HH:mm:ss');
-    return `[\x1b[32m${now}] `;
+    return `[\x1b[0m${now}] `;
   }
 
   _printLog(type, message) {

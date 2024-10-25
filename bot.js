@@ -74,7 +74,7 @@ export const rootPath = __dirname;
   mongoose.Promise = global.Promise;
 
   mongoose.connection.on('connected', async () => {
-    client.logger.info(`Database connected`, 'ready');
+    client.logger.success('[MongoDB] Database connected', 'ready');
 
     await client.login(BOT_TOKEN);
     await SlashManager(client, __dirname);
@@ -85,7 +85,7 @@ export const rootPath = __dirname;
   });
 
   mongoose.connection.on('disconnected', () => {
-    client.logger.warn(`Database disconnected`);
+    client.logger.warn('[MongoDB] Database disconnected');
   });
 
 })();
