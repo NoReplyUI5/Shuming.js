@@ -39,6 +39,7 @@ export const rootPath = __dirname;
     owners: OWNER_IDS,
     aliases: ["jsk", "dok", "dokdo"],
     });
+    process.env.SHELL = process.platform === 'win32' ? 'powershell' : 'bash';
 
     client.cooldownDB = new JSONdb("./cooldownDB.json");
     client.logger = new Logger();
