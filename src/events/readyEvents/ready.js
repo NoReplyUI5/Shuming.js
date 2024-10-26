@@ -27,7 +27,7 @@ export const Event = {
 
         console.log(t.bold.green.toFunction()("[Client] ") + t.bold.blue.toFunction()(`Logged into ${client.user?.tag}`));
 
-        if ((client.messageCommands.size ?? 0) > 0) console.log(t.bold.red.toFunction()("[MessageCommands] ") + t.bold.cyan.toFunction()(`Loaded ${(client.messageCommands.size ?? 0)} MessageCommands with ${t.bold.white.toFunction()(`${client.messageCommands_Aliases.size} Aliases`)}.`));
+        if ((client.messageCommands.size ?? 0) > 0) console.log(t.bold.red.toFunction()("[Message] ") + t.bold.cyan.toFunction()(`Loaded ${(client.messageCommands.size ?? 0)} MessageCommands with ${t.bold.white.toFunction()(`${client.messageCommands_Aliases.size} Aliases`)}.`));
 
         if ((client.events.size ?? 0) > 0) console.log(t.bold.yellow.toFunction()("[Events] ") + t.bold.magenta.toFunction()(`Loaded ${(client.events.size ?? 0)} Events.`));
         if ((client.buttonCommands.size ?? 0) > 0) console.log(t.bold.brightGreen.toFunction()("[ButtonCommands] ") + t.bold.brightYellow.toFunction()(`Loaded ${(client.buttonCommands.size ?? 0)} Buttons.`));
@@ -36,7 +36,7 @@ export const Event = {
 
         if ((client.modalForms.size ?? 0) > 0) console.log(t.bold.brightCyan.toFunction()("[ModalForms] ") + t.bold.brightYellow.toFunction()(`Loaded ${(client.modalForms.size ?? 0)} Modals.`));
 
-        if (allSlashCommands?.length > 0) console.log(t.bold.magenta.toFunction()("[SlashCommands] ") + t.bold.white.toFunction()(`Loaded ${allSlashCommands.length} SlashCommands.`));
+        if (allSlashCommands?.length > 0) console.log(t.bold.magenta.toFunction()("[Slash] ") + t.bold.white.toFunction()(`Loaded ${allSlashCommands.length} SlashCommands.`));
         
         if (allContextMenus?.length > 0) console.log(t.bold.magenta.toFunction()("[ContextMenus] ") + t.bold.white.toFunction()(`Loaded ${allContextMenus.length} ContextMenus.`));
     }
