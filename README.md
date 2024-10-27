@@ -31,7 +31,7 @@ To get started with the Shuming.js, follow these steps:
 
 Contributions to the Shuming.js are welcome. To contribute, please follow these guidelines:
 
-1. Fork the `Main` branch. **Important: All changes must be made to the Main branch.**
+1. Fork the `shuming` branch. **Important: All changes must be made to the Main branch.**
 2. Make your changes in your forked repository.
-3. Open a pull request to the `Main` branch, and it will be reviewed promptly.
+3. Open a pull request to the `shuming` branch, and it will be reviewed promptly.
 4. If everything checks out, the pull request will be merged.# Shuming.js
