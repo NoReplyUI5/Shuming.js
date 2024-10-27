@@ -1,7 +1,37 @@
 import { MC_TIME_ZONE, MC_STATS_CHANNEL_ID, MC_STATS_IP, MC_STATS_PORT, MC_STATS_ICON, MC_STATS_ENABLED, MC_STATS_REFRESH } from '../../config.js';
 import { EmbedBuilder } from 'discord.js';
 import axios from 'axios';
-import moment from 'moment-timezone'; // Import moment-timezone
+import moment from 'moment-timezone';
+
+export const Event = {
+  name: 'ready',
+  runOnce: false,
+  run: async (client) => {
+    // Check if the event is enabled
+    if (!MC_STATS_ENABLED) {
+      client.logger.log('MC Stats event is disabled from config.');
+      return;
+    }
+
+    const channel = client.channels.cache.get(MC_STATS_CHANNEL_ID);
+    if (!channel) {
+      client.logger.error(`Channel with ID ${MC_STATS_CHANNEL_ID} not found`);
+      return;
+    }
+    
+    let lastMessageId = null;
+    const fetched = await channel.messages.fetch({ limit: 100 });
+    await channel.bulkDelete(fetched);
+
+    // Send the initial embed message and save the last message ID
+    lastMessageId = await sendEmbed(channel, client, lastMessageId);
+    
+    // Update the embed message every # seconds
+    setInterval(() => {
+      sendEmbed(channel, client, lastMessageId);
+    }, MC_STATS_REFRESH*1000); // Update based on MC_STATS_REFRESH
+  }
+};
 
 const config = {
   host: MC_STATS_IP,
@@ -9,7 +39,6 @@ const config = {
   icon: MC_STATS_ICON || "https://cdn.discordapp.com/attachments/1073089280672542720/1101682698059260004/GrassBlock_HighRes.png",
 };
 
-const channelId = MC_STATS_CHANNEL_ID;
 const thumbnail = config.icon;
 
 // Function to get server status using axios
@@ -68,7 +97,7 @@ function formatEmbed(data) {
 }
 
 // Function to send the embed
-async function sendEmbed(channel, lastMessageId) {
+async function sendEmbed(channel, client, lastMessageId) {
   try {
     const data = await getServerStatus();
     const embed = formatEmbed(data);
@@ -84,34 +113,3 @@ async function sendEmbed(channel, lastMessageId) {
     client.logger.error(error);
   }
 }
-
-// Event to handle when the bot is ready
-export const Event = {
-  name: 'ready',
-  runOnce: false,
-  run: async (client) => {
-    // Check if the event is enabled
-    if (!MC_STATS_ENABLED) {
-      client.logger.log('MC Stats event is disabled from config.');
-      return;
-    }
-
-    const channel = client.channels.cache.get(channelId);
-    if (!channel) {
-      client.logger.error(`Channel with ID ${channelId} not found`);
-      return;
-    }
-    
-    let lastMessageId = null;
-    const fetched = await channel.messages.fetch({ limit: 100 });
-    await channel.bulkDelete(fetched);
-
-    // Send the initial embed message and save the last message ID
-    lastMessageId = await sendEmbed(channel, lastMessageId);
-    
-    // Update the embed message every # seconds
-    setInterval(() => {
-      sendEmbed(channel, lastMessageId);
-    }, MC_STATS_REFRESH*1000); // Update based on MC_STATS_REFRESH
-  }
-};
