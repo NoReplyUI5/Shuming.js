@@ -34,3 +34,10 @@ export const MC_STATS_IP = "Minecraft Server IP"; // Your Minecraft Server IP
 export const MC_STATS_PORT = "Minecraft Server Port"; // Your Minecraft Server Port (usually 25565)
 export const MC_STATS_REFRESH = 60; // Refresh interval in seconds (default: 60 seconds)
 // The MC_STATS_REFRESH value controls how often the server stats will be updated
+
+// AUTO CODE BACKUP CONFIGURATION
+export const BACKUP_ENABLED = false; // Enable or disable the backup system
+export const BACKUP_TIMES = ["6:00","12:00","18:00","24:00"]; // Backup times in 24-hour format
+export const BACKUP_PASSWORD = "your_password_here"; // base64 binary code
+export const BACKUP_TIME_ZONE = "America/New_York"; // Specify your timezone
+export const BACKUP_USER_IDS = ["1234567890"]; // User IDs to receive the backup

@@ -21,6 +21,8 @@
   "homepage": "https://github.com/NoReplyUI5/Shuming.js#readme",
   "dependencies": {
     "@discordjs/voice": "^0.17.0",
+    "archiver": "^7.0.1",
+    "archiver-zip-encrypted": "^2.0.0",
     "axios": "^1.7.7",
     "discord.js": "^14.16.2",
     "libsodium-wrappers": "^0.7.15",
