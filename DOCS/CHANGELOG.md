@@ -1,4 +1,5 @@
 ## Changelog / NoReplyUI5
+- **(+) Added Auto Code Backup System (Events)**
 - **(+) Added Minecraft Status Checker (Events)**
 - **(+) Added Delete Bot Message System (Events)**
 - **(+) Added Autorole Users & Bots System (Events)**
