@@ -17,7 +17,7 @@ export const ownerOnlyFN = (client, message, command) => {
                     iconURL: message.member.user.displayAvatarURL()
                 })
                 .setThumbnail(client.user.displayAvatarURL())
-                .setDescription("The command you tried to run is __restricted__ for the developers of this bot and thus the command failed to execute.")
+                .setDescription("The command you tried to run is __restricted__ by the developer.")
             ],
         });
         

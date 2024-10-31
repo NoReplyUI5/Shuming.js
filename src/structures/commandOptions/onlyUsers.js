@@ -16,7 +16,7 @@ export const onlyUsersFN = (client, message, command) => {
                     iconURL: message.member.user.displayAvatarURL()
                 })
                 .setThumbnail(client.user.displayAvatarURL())
-                .setDescription("The command you tried to execute couldn't be ran as you are not one of the authorized users.")
+                .setDescription("The command you tried to execute couldn't be executed as you are not one of the authorized users.")
             ]
         });
         

@@ -15,7 +15,7 @@ export const onlyChannelsFN = (client, message, command) => {
                     iconURL: message.member.user.displayAvatarURL()
                 })
                     .setThumbnail(client.user.displayAvatarURL())
-                    .setDescription(`The command you tried to execute cannot be ran in the current channel. Please execute the command in of these authorized channels:\n${command.onlyChannels.map(channelId => `↳ <#${channelId}>`).join("\n")}`)
+                    .setDescription(`The command you tried to execute cannot be executed in the current channel. Please execute the command in of these authorized channels:\n${command.onlyChannels.map(channelId => `↳ <#${channelId}>`).join("\n")}`)
                 ]
             });
 

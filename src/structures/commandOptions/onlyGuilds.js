@@ -16,7 +16,7 @@ export const onlyGuildsFN = (client, message, command) => {
                     iconURL: message.member.user.displayAvatarURL()
                 })
                 .setThumbnail(client.user.displayAvatarURL())
-                .setDescription(`The command you tried to execute cannot be ran in the current guild. Please execute the command in of these authorized guilds:\n${command.onlyGuilds.map((guildID) => `↳ <#${guildID}>`).join("\n")}`)
+                .setDescription(`The command you tried to execute cannot be executed in the current guild. Please execute the command in of these authorized guilds:\n${command.onlyGuilds.map((guildID) => `↳ <#${guildID}>`).join("\n")}`)
             ]
         });
 
