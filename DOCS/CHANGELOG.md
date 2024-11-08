@@ -1,4 +1,5 @@
 ## Changelog / NoReplyUI5
+- **(=) Multi-guild Support (Very Soon)**
 - **(+) Added Auto Code Backup System (Events)**
 - **(+) Added Minecraft Status Checker (Events)**
 - **(+) Added Delete Bot Message System (Events)**
