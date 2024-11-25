@@ -1,5 +1,8 @@
 # Shuming.js
 
+### Important:
+**I hope this message finds you well. I wanted to provide a brief update regarding the `Shuming.js` project. Due to the absence of a proper timetable, I have encountered some challenges in implementing further updates. However, I am actively working on enhancing the code to support multi-guild functionality and plan to push this update soon.**
+
 The Shuming.js provides a solid foundation for creating feature-rich Discord bots using Discord.js. It includes various managers for handling message commands, buttons, select menus, slash commands, context menus, and modal forms. The template offers customization options, colorful logging, and a simple code structure.
 
 ## [TEMPLATE OFFICIAL SOURCE](https://GitHub.com/RileCraft/DiscordBot-Template)
